@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frameContainer"
+    android:clickable="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"
+                        android:textSize="28sp"
+                        android:fontFamily="@font/helvetica_light"
+                        android:layout_margin="16dp"
+                        android:textColor="@color/teal_700" />
+
+
+                    <TextView
+                        android:id="@+id/favorite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:padding="16dp"
+                        android:textSize="20sp"
+                        android:visibility="visible"
+                        android:fontFamily="@font/helvetica_light"
+                        android:text="@string/favorites" />
+
+                    <TextView
+                        android:id="@+id/tutorialText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginBottom="22dp"
+                        android:textSize="14sp"
+                        android:visibility="visible"
+                        android:fontFamily="@font/helvetica_light"
+                        android:text="@string/double_click_info" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/favoriteRecyclerView"
+                        android:scrollbars="none"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="52dp"
+                        android:visibility="gone"
+                        android:layout_alignParentTop="true" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp"
+                        android:layout_gravity="center"
+                        android:indeterminateTint="@color/white"
+                        android:indeterminate="true" />
+
+                    <LinearLayout
+                        android:id="@+id/popularLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/popular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:padding="16dp"
+                            android:textSize="20sp"
+                            android:visibility="gone"
+                            android:fontFamily="@font/helvetica_light"
+                            android:text="@string/popular" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/pageNext"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:visibility="visible"
+                                android:layout_alignParentRight="true"
+                                android:clickable="true"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                                android:layout_margin="12dp"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:id="@+id/pageText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:textSize="16dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:layout_centerInParent="true" />
+
+                            <ImageView
+                                android:id="@+id/pageBack"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:visibility="visible"
+                                android:layout_alignParentLeft="true"
+                                android:clickable="true"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:src="@drawable/ic_baseline_chevron_left_24"
+                                android:layout_margin="12dp"
+                                app:tint="@color/white" />
+
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/popularRecyclerView"
+                            android:scrollbars="none"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="16dp"
+                            android:visibility="gone"
+                            android:layout_alignParentTop="true" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:clickable="true"
+                android:visibility="gone"
+                android:src="@drawable/ic_baseline_arrow_upward_24"
+                android:layout_margin="22dp" />
+        </RelativeLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</FrameLayout>
